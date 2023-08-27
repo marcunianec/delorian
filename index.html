@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- saved from url=(0112)http://localhost:63342/untitled/saple-file.html?_ijt=1d5fpumbe9jrcj3889hhqtnusp&_ij_reload=RELOAD_ON_SAVE#bicini -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   
+   <meta name="author" content="Марк Аванесов">
+   <meta name="description" content="Тестовая страница">
+   <meta name="keywords" content="тест,проверка,html">
+     <title>HTML+CSS</title>
+   <link rel="stylesheet" href="./HTML+CSS_files/main.css">
+ </head>
+   <body background="./HTML+CSS_files/image.jpg" align="center">
+
+  <img id="img" src="./HTML+CSS_files/De-Lorean-Logo.png">
+
+
+  <div class="block" style="color:white">
+
+    <img id="imgi" src="./HTML+CSS_files/i">
+    <a id="down" href="http://localhost:63342/untitled/saple-file.html?_ijt=1d5fpumbe9jrcj3889hhqtnusp&amp;_ij_reload=RELOAD_ON_SAVE#bicini">Вниз</a>
+
+
+
+
+  <p>DeLorean DMC-12 — спортивный автомобиль, который выпускался в Северной Ирландии для американской автомобильной компании DeLorean Motor Company с 1981 по 1983 год.
+    В 2008 году машины производились под заказ и восстанавливались силами компании <a style="color:black" href="https://tr-page.yandex.ru/translate?lang=en-ru&amp;url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FDeLorean_Motor_Company_%28Texas%29" target="_blank">DMC Texas</a>.
+Более распространённым названием стало DeLorean, так как это была единственная модель, выпускавшаяся компанией. В DMC-12 были использованы двери типа «крыло чайки».
+    Первый опытный образец DeLorean Safety Vehicle (DSV) появился в марте 1977 года, а производство началось в 1981 году (первый DMC-12 сошёл с конвейера 21 января на фабрике DMC в Данмурри[en] в Северной Ирландии). В течение его производства несколько деталей автомобиля были изменены (капот, колёса и интерьер). До прекращения производства в 1983 году было изготовлено около девяти тысяч экземпляров <a style="color:black" href="https://ru.wikipedia.org/wiki/DeLorean_DMC-12" target="_blank">DMC-12</a>, из которых примерно восемь тысяч сохранились до наших дней.</p>
+
+
+    <div style="position:relative;">
+  <div id="kontakt"><a style="color:red" href="mailto:vladrebrov7000@gmail.com">Контакты</a></div>
+      <div id="google"><a style="color:red" href="https://google.com/" target="_blank">Я вам не гугл</a></div>
+
+      <a name="bicini"></a>
+
+
+
+
+
+
+
+
+
+  <!-- <div style="position:absolute;width:500px;height:50vh;background-color:black;color:white;top:0;left:0;padding-left:10px;padding-top:10px;font-size:16px;z-index:5;"><a href="LINK" ><? echo $title ?></a></div>-->
+
+
+   
+  
+
+
+<script>
+(function() {
+  var ws = new WebSocket('ws://' + window.location.host + 
+             '/jb-server-page?reloadMode=RELOAD_ON_SAVE&'+
+             'referrer=' + encodeURIComponent(window.location.pathname));
+  ws.onmessage = function (msg) {
+      if (msg.data === 'reload') {
+          window.location.reload();
+      }
+      if (msg.data.startsWith('update-css ')) {
+          var messageId = msg.data.substring(11);
+          var links = document.getElementsByTagName('link');
+          for (var i = 0; i < links.length; i++) {
+              var link = links[i];
+              if (link.rel !== 'stylesheet') continue;
+              var clonedLink = link.cloneNode(true);
+              var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
+              if (newHref !== link.href) {
+                clonedLink.href = newHref;
+              }
+              else {
+                var indexOfQuest = newHref.indexOf('?');
+                if (indexOfQuest >= 0) {
+                  // to support ?foo#hash 
+                  clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' + 
+                                    newHref.substring(indexOfQuest + 1);
+                }
+                else {
+                  clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
+                }
+              }
+              link.replaceWith(clonedLink);
+          }
+      }
+  };
+})();
+</script></div></div></body></html>
